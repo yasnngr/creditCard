@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card-form {
+  width: 400px;
+  border: 2px solid #ccc; /* veya istediğiniz çerçeve rengi */
+}
+
+.full-width {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.half-width {
+  width: 48%; /* Yüzde değerini ayarlayarak istediğiniz genişliği kontrol edebilirsiniz */
+}
+.button-row {
+  display: flex;
+  justify-content: flex-end; /* Değişiklik burada, butonları sağa yaslıyoruz */
+  align-items: center;
+  margin-top: 16px;
+}
+
+.send-button,
+.reset-button {
+  margin-left: 8px; /* Butonlar arasında 8 piksel boşluk bırakıyoruz */
+}

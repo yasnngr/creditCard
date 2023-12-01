@@ -1,0 +1,43 @@
+<div class="container">
+
+  <mat-card class="card-form">
+    <mat-card-content>
+    <form [formGroup]="creditCardForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="full-width">
+        <mat-label>Name</mat-label>
+        <input appCardName formControlName="name" matInput placeholder="Name" name="cardName">
+        <mat-error *ngIf="creditCardForm.get('name').hasError('invalidCardName')">Name must be at least 3 characters</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Card Number</mat-label>
+        <input  appCustomCardNumber formControlName="cardNumber" matInput placeholder="Card Number" name="cardNumber">
+        <mat-error *ngIf="creditCardForm.get('cardNumber').hasError('minlength')">Card Number must be at least 16 characters</mat-error>
+      </mat-form-field>
+
+      <div class="row">
+        <mat-form-field class="half-width">
+          <mat-label>Expiration Date</mat-label>
+          <input appCardExpiration formControlName="expirationDate" matInput placeholder="MM/YY" name="expirationDate" >
+          <mat-error *ngIf="creditCardForm.get('expirationDate').hasError('pattern')">
+            Expiration Date must be in MM/YY format
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="half-width">
+          <mat-label>CVV</mat-label>
+          <input appCardCvv formControlName="cvv" matInput placeholder="CVV" name="cvv">
+          <mat-error *ngIf="creditCardForm.get('cvv').hasError('minlength')">Invalid CVV format</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="button-row">
+        <button mat-button color="warn" class="reset-button" (click)="onReset()">Reset</button>
+        <button mat-raised-button color="primary" class="send-button" [disabled]="creditCardForm.invalid" type="submit">Gönder</button>
+      </div>
+    </form>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+
+{{creditCardForm.value|json}}
